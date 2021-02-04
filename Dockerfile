@@ -59,7 +59,7 @@ ENV APP_HOME /usr/src/app
 WORKDIR /$APP_HOME
 
 COPY . $APP_HOME/
-RUN cp /usr/bin/chromedriver  /usr/local/bin/ && cp /usr/bin/chromedriver /usr/sbin/ && cp /usr/bin/chromedriver  /usr/local/sbin
+RUN cp /usr/bin/chromedriver  /usr/local/bin/ && cp /usr/bin/chromedriver /usr/sbin/ && cp /usr/bin/chromedriver  /usr/local/sbin/
 
 CMD tail -f /dev/null
 # CMD python3 example.py
