@@ -15,9 +15,6 @@ jobs:
       - run:
           name: prueba
           command: echo "Hola mundo"
-      - run:
-          name: run tests
-          command: sh run_tests.sh
 
   test-python-3.6:
     <<: *template
@@ -39,6 +36,4 @@ workflows:
   version: 2
   test:
     jobs:
-      - test-python-3.7
-      - test-python-3.8
-      - test-python-3.9
+      - test_buy_soat_not_valid01.py
