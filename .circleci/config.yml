@@ -1,21 +1,44 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
+version: 2
 jobs:
-  build-and-test:
-    executor: python/default
+  test-python-3.7: &template
+    docker:
+      - image: circleci/python:3.7
+      - image: PruebaR5/docker-compose.yml
+
+    working_directory: ~/PruebaR5
+
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          name: install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: prueba
+          command: echo "Hola mundo"
+      - run:
+          name: run tests
+          command: sh run_tests.sh
+
+  test-python-3.6:
+    <<: *template
+    docker:
+      - image: circleci/python:3.6
+
+  test-python-3.8:
+    <<: *template
+    docker:
+      - image: circleci/python:3.8
+
+  test-python-3.9:
+    <<: *template
+    docker:
+      - image: circleci/python:3.9
+
 
 workflows:
-  main:
+  version: 2
+  test:
     jobs:
-      - build-and-test
+      - test-python-3.7
+      - test-python-3.8
+      - test-python-3.9
