@@ -59,6 +59,7 @@ class TestBuyValid(unittest.TestCase):
         self.driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-2-0']/div/app-pse-form/form/div[5]/div/div/button[2]/span").click()
         self.assertEqual("DEYANID, confirma los datos para la compra de tu SOAT", self.driver.find_element_by_xpath("//app-summary/div/div").text)
         self.driver.find_element_by_xpath("//div[5]/button[2]/span").click()
+        self.driver.save_screenshot("test_buy_soat_valid01.png")
 
     def tearDown(self):
         self.driver.quit()

@@ -85,6 +85,7 @@ class TestBuyNotValid(unittest.TestCase):
 
         # boton continuar
         self.driver.find_element_by_xpath("//body/app-root[1]/app-sale[1]/app-step0[1]/section[1]/div[1]/section[1]/div[1]/app-vehicle-form[1]/form[1]/div[2]/button[1]").click()
+        self.driver.save_screenshot("test_buy_soat_not_valid02.png")
 
     def tearDown(self):
         self.driver.quit()

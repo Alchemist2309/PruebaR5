@@ -22,9 +22,11 @@ class TestBuyNotValid(unittest.TestCase):
         self.driver.find_element_by_css_selector("#mat-slide-toggle-1").click()
         time.sleep(5)
         self.assertEqual("No se encuentran datos relacionados con la placa", self.driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-error/div/h2").text)
+        self.driver.save_screenshot("test_buy_soat_not_valid01.png")
 
     def tearDown(self):
         self.driver.quit()
+        
 
 
 if __name__ == '__main__':
